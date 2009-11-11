@@ -107,8 +107,8 @@ $(document).ready(function() {
     }); /* document.ready */
 
 function hideTOC() {
-    var toc = '<a href="javascript:showTOC()">show table of contents</a>';
-    $("#toc").html(toc);
+    var toc = '<a href="javascript:showTOC()">mostra l&#8217;indice</a>';
+    $("#indice").html(toc);
 }
 
 function showTOC() {
@@ -128,6 +128,6 @@ function showTOC() {
 	toc += '</ol>';
 	level -= 1;
     }
-    toc = '<a href="javascript:hideTOC()">hide table of contents</a><ol start=0><li><a href=table-of-contents.html><span class=u>&uarr;</span> Full table of contents</a></li>' + toc.substring(4);
-    $("#toc").html(toc);
+    toc = '<a href="javascript:hideTOC()">nascondi l&#8217;indice</a><ol start=0><li><a href=indice.html><span class=u>&uarr;</span> Indice completo</a></li>' + toc.substring(4);
+    $("#indice").html(toc);
 }
