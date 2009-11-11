@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <meta charset=utf-8>
-<title>Individuare il supporto per le caratteristiche di HTML5 - Dive Into HTML5 (in italiano)</title>
+<title>Individuare le caratteristiche di HTML5 - Dive Into HTML5 (in italiano)</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel="shortcut icon" href=favicon.ico>
 <link rel=stylesheet href=screen.css>
@@ -10,7 +10,7 @@ body{counter-reset:h1 2}
 </style>
 <div id=zz>
 <p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#detect>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
-<h1>Individuare il supporto per le caratteristiche di HTML5</h1>
+<h1>Individuare le caratteristiche di HTML5</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2042;
 <h2 id=divingin>Diving In</h2>
@@ -19,7 +19,7 @@ body{counter-reset:h1 2}
 
 <p class=a>&#x2042;
 
-<h2 id=techniques>Tecniche di individuazione</h2>
+<h2 id=metodi>Metodi di scoperta</h2>
 
 <p>Quando il tuo browser mostra una pagina costruisce un Document Object Model (<abbr><dfn>DOM</dfn></abbr>), una raccolta di oggetti che rappresentano gli elementi <abbr>HTML</abbr> nella pagina. Ciascun elemento &mdash; ogni <code>&lt;p></code>, ogni <code>&lt;div></code>, ogni <code>&lt;span></code> &mdash; viene rappresentato nel <abbr>DOM</abbr> da un diverso oggetto. (Esistono anche oggetti globali, come <code>window</code> e <code>document</code>, che non sono legati a specifici elementi.)
 
@@ -64,7 +64,7 @@ body{counter-reset:h1 2}
 </code></pre>
 <p class="legend right" style="margin-top:7em"><span class=arrow>&nbsp;&#x219c;</span> Va all’interno della tua &lt;head>
 
-<p class=clear>Modernizr funziona automaticamente. Non c’è nessun <code>modernizr_init()</code> da invocare. Viene eseguito, crea un oggetto globale chiamato <code>Modernizr</code> che contiene un insieme di proprietà booleane per ogni caratteristica che individua. Per esempio, se il tuo browser supporta la <a href=canvas.html>canvas <abbr>API</abbr></a>, la proprietà <code>Modernizr.canvas</code> sarà <code>true</code>. Se il tuo browser non supporta la canvas <abbr>API</abbr>, la proprietà <code>Modernizr.canvas</code> sarà <code>false</code>.
+<p class=clear>Modernizr funziona automaticamente. Non c’è nessun <code>modernizr_init()</code> da invocare. Quando viene eseguito, crea un oggetto globale chiamato <code>Modernizr</code> che contiene un insieme di proprietà booleane per ogni caratteristica che individua. Per esempio, se il tuo browser supporta la <a href=canvas.html>canvas <abbr>API</abbr></a>, la proprietà <code>Modernizr.canvas</code> sarà <code>true</code>. Se il tuo browser non supporta la canvas <abbr>API</abbr>, la proprietà <code>Modernizr.canvas</code> sarà <code>false</code>.
 
 <pre><code>if (Modernizr.canvas) {
   // disegnamo qualche forma!
@@ -114,13 +114,13 @@ body{counter-reset:h1 2}
 
 <p class=a>&#x2042;
 
-<h2 id=canvas-text>Canvas Text</h2>
+<h2 id=canvas-text>Canvas text</h2>
 
 <p class=ss style="width:414px"><img src=i/openclipart.org_johnny_automatic_baseball_at_bat.png width=414 height=254 alt="giocatore di baseball alla battuta"><br><span id=live-canvas-text></span>
 
 <p>Anche se il tuo browser supporta la <a href=#canvas>canvas <abbr>API</abbr></a>, potrebbe non supportare la <dfn>canvas text</dfn> <abbr>API</abbr>. La canvas <abbr>API</abbr> si è evoluta col tempo, e le funzioni testuali sono state aggiunte in seguito. Alcuni browser sono salpati con il supporto per i canvas prima che la text <abbr>API</abbr> fosse completa.
 
-<p>Per verificare il supporto della canvas text <abbr>API</abbr> usa la <a href=#techniques>tecnica #2</a>. Se il tuo browser supporta la canvas <abbr>API</abbr>, l’oggetto <abbr>DOM</abbr> che crea per rappresentare un elemento <code>&lt;canvas></code> avrà un <a href=canvas.html#shapes>metodo <code>getContext()</code></a>. Se il tuo browser non supporta la canvas <abbr>API</abbr>, l’oggetto <abbr>DOM</abbr> che crea un elemento <code>&lt;canvas></code> avrà solo l’insieme di proprietà comuni, ma niente di specifico riguardo i canvas.
+<p>Per verificare il supporto della canvas text <abbr>API</abbr> usa la <a href=#metodi>tecnica #2</a>. Se il tuo browser supporta la canvas <abbr>API</abbr>, l’oggetto <abbr>DOM</abbr> che crea per rappresentare un elemento <code>&lt;canvas></code> avrà un <a href=canvas.html#shapes>metodo <code>getContext()</code></a>. Se il tuo browser non supporta la canvas <abbr>API</abbr>, l’oggetto <abbr>DOM</abbr> che crea un elemento <code>&lt;canvas></code> avrà solo l’insieme di proprietà comuni, ma niente di specifico riguardo i canvas.
 
 <pre><code>function supports_canvas_text() {
   if (!supports_canvas()) { return false; }
@@ -163,7 +163,7 @@ body{counter-reset:h1 2}
 
 <p>I browser che non supportano <abbr>HTML5</abbr> video ignoreranno totalmente l’elemento <code>&lt;video></code>; puoi utilizzare questo a tuo vantaggio e dir loro di riprodurre un video attraverso un plugin. Kroc Camen ha progettato una soluzione chiamata <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a> che utilizza <abbr>HTML5</abbr> video dove disponibile e ripiega su Apple QuickTime&reg; or Adobe Flash&reg; nei browser più vecchi. Questa soluzione non utilizza JavaScript e funziona virtualmente in qualsiasi browser, inclusi quelli dei dispositivi mobili.
 
-<p>Se vuoi fare altre cose con i video oltre a metterli sulle pagine consentirne la riproduzione dovrai usare JavaScript. Per verificare il supporto di <abbr>HTML5</abbr> video si usa la <a href=#techniques>tecnica #2</a>. Se il tuo browser supporta <abbr>HTML5</abbr> video, l’oggetto <abbr>DOM</abbr> che crea per rappresentare l’elemento <code>&lt;video></code> avrà un metodo <code>canPlayType()</code>. Se il tuo browser non supporta <abbr>HTML5</abbr> video, l’oggetto <abbr>DOM</abbr> creato per un elemento <code>&lt;video></code> avrà soltanto l’insieme di proprietà comuni a tutti gli elementi.
+<p>Se vuoi fare altre cose con i video oltre a metterli sulle pagine consentirne la riproduzione dovrai usare JavaScript. Per verificare il supporto di <abbr>HTML5</abbr> video si usa la <a href=#metodi>tecnica #2</a>. Se il tuo browser supporta <abbr>HTML5</abbr> video, l’oggetto <abbr>DOM</abbr> che crea per rappresentare l’elemento <code>&lt;video></code> avrà un metodo <code>canPlayType()</code>. Se il tuo browser non supporta <abbr>HTML5</abbr> video, l’oggetto <abbr>DOM</abbr> creato per un elemento <code>&lt;video></code> avrà soltanto l’insieme di proprietà comuni a tutti gli elementi.
 
 <pre><code>function supports_video() {
   return !!document.createElement('video').canPlayType;
@@ -193,7 +193,7 @@ body{counter-reset:h1 2}
 
 <p>La &#8220;lingua&#8221; di un video è chiamata &#8220;codec&#8221; &mdash; l’algoritmo usato per codificare il video in un flusso di bit. Esistono dozzine di codec usati in tutto il mondo. Quale dovresti usare? La triste realtà di <abbr>HTML5</abbr> video è che i browser non riescono a trovare un accordo su un singolo codec. Comunque sembra che siano riusciti a restringere la scelta a due di essi. Uno è un codec costa soldi (per via della licenza sul suo brevetto) ma funziona su <a href=http://www.apple.com/safari/>Safari</a> e iPhone.  (Questo funziona anche in Adobe Flash&reg;, se usi una soluzione come <a href=http://camendesign.com/code/video_for_everybody>Video for Everybody!</a>) L’altro codec è gratuito e funziona nei browser open source come <a href=http://code.google.com/chromium/>Chromium</a> e <a href=http://www.getfirefox.com/>Mozilla Firefox</a>.
 
-<p>Per verificare i formati video supportati si usa la <a href=#techniques>tecnica #3</a>. Se il tuo browser supporta <abbr>HTML5</abbr> video, l’oggetto <abbr>DOM</abbr> creato per rappresentare un elemento <code>&lt;video></code> possiederà un metodo <code>canPlayType()</code>. Questo metodo ti dirà se il browser supporta un particolare tipo di formato video.
+<p>Per verificare i formati video supportati si usa la <a href=#metodi>tecnica #3</a>. Se il tuo browser supporta <abbr>HTML5</abbr> video, l’oggetto <abbr>DOM</abbr> creato per rappresentare un elemento <code>&lt;video></code> possiederà un metodo <code>canPlayType()</code>. Questo metodo ti dirà se il browser supporta un particolare tipo di formato video.
 
 <p>Questa funzione verifica il formato supportato dai Mac e gli iPhone.
 
@@ -235,7 +235,7 @@ body{counter-reset:h1 2}
 
 <p class=a>&#x2042;
 
-<h2 id=storage>Local Storage</h2>
+<h2 id=storage>Storage locale</h2>
 
 <p class=ss style="width:135px"><img src=i/openclipart.org_johnny_automatic_half_stack_of_horizontal_sections.png alt="filing cabinet with drawers of different sizes" width=135 height=341><br><span id=live-storage></span>
 
@@ -251,7 +251,7 @@ R: La risposta breve è che sì, lo storage in locale fa parte di <abbr>HTML5</a
 </div>
 </div>
 
-<p>Per verificare il supporto dello <abbr>HTML5</abbr> storage si usa la <a href=#techniques>tecnica #1</a>. Se il tuo browser supporta lo <abbr>HTML5</abbr> storage, ci sarà una proprietà <code>localStorage</code> nell’oggetto globale <code>window</code>. Se il tuo browser non supporta lo <abbr>HTML5</abbr> storage, la proprietà <code>localStorage</code> non sarà definita.
+<p>Per verificare il supporto dello <abbr>HTML5</abbr> storage si usa la <a href=#metodi>tecnica #1</a>. Se il tuo browser supporta lo <abbr>HTML5</abbr> storage, ci sarà una proprietà <code>localStorage</code> nell’oggetto globale <code>window</code>. Se il tuo browser non supporta lo <abbr>HTML5</abbr> storage, la proprietà <code>localStorage</code> non sarà definita.
 
 <pre><code>function supports_local_storage() {
   return !!window.localStorage;
@@ -277,7 +277,7 @@ R: Chiunque abbia accesso fisico al tuo computer probabilmente sarà in grado di
 
 <p><a href=http://www.whatwg.org/specs/web-workers/current-work/>Web Workers</a> forniscono un modo standard per i browser di eseguire JavaScript in background. Con i web workers puoi generare molteplici &#8220;threads&#8221; che vengono eseguiti tutti allo stesso tempo, più o meno. (Pensa a come il tuo computer sia in grado di eseguire molteplici applicazioni allo stesso tempo e più o meno ci sei.) Questi &#8220;background threads&#8221; possono fare complessi calcoli matematici, richieste sulla rete, o accedere al <a href=#local-storage>local storage</a> mentre le pagine web rispondono all’utente che clicca, scorre la pagina o scrive.
 
-<p>Per verificare il supporto dei web workers si usa la <a href=#techniques>tecnica #1</a>. Se il tuo browser supporta la Web Worker <abbr>API</abbr>, ci sarà una proprietà <code>Worker</code> nell’oggetto globale <code>window</code>. Se il tuo browser non supporta la Web Worker <abbr>API</abbr>, la proprietà <code>Worker</code> non sarà definita.
+<p>Per verificare il supporto dei web workers si usa la <a href=#metodi>tecnica #1</a>. Se il tuo browser supporta la Web Worker <abbr>API</abbr>, ci sarà una proprietà <code>Worker</code> nell’oggetto globale <code>window</code>. Se il tuo browser non supporta la Web Worker <abbr>API</abbr>, la proprietà <code>Worker</code> non sarà definita.
 
 <pre><code>function supports_web_workers() {
   return !!window.Worker;
@@ -295,7 +295,7 @@ R: Chiunque abbia accesso fisico al tuo computer probabilmente sarà in grado di
 
 <p>Le <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline>applicazioni web offline</a> sono prima di tutto applicazioni online. La prima volta che visiti un sito web abilitato a funzionare anche offline, il web server dice al tuo browser di quali file necessita per funzionare offline. Questi file possono essere di qualsiasi tipo &mdash; <abbr>HTML</abbr>, JavaScript, immagini, persino <a href=#video>video</a>. Una volta che il tuo browser ha scaricato tutti i file necessari, puoi visitare nuovamente il sito anche se non sei connesso ad Internet. Il tuo browser noterà che sei offline e si limiterà ad usare i file già scaricati. Una volta tornato online, le modifiche fatte in locale potranno essere caricate sul web server remoto.
 
-<p>Per verificare il supporto per le applicazioni offline si usa la <a href=#techniques>tecnica #1</a>. Se il tuo browser supporta le applicazioni web offline, ci sarà una proprietà <code>applicationCache</code> nell’oggetto globale <code>window</code>. Se il tuo browser non supporta le applicazioni web offline, la proprietà <code>applicationCache</code> non sarà definita.
+<p>Per verificare il supporto per le applicazioni offline si usa la <a href=#metodi>tecnica #1</a>. Se il tuo browser supporta le applicazioni web offline, ci sarà una proprietà <code>applicationCache</code> nell’oggetto globale <code>window</code>. Se il tuo browser non supporta le applicazioni web offline, la proprietà <code>applicationCache</code> non sarà definita.
 
 <pre><code>function supports_offline() {
   return !!window.applicationCache;
@@ -321,7 +321,7 @@ R: Il supporto della geolocazione ai browser viene aggiunto proprio ora, mentre 
 </div>
 </div>
 
-<p>Per verificareil supporto per la geolocazione si usa la <a href=#techniques>tecnica #1</a>. Se il tuo browser supporta la geolocation <abbr>API</abbr>, ci sarà una proprietà <code>geolocation</code> nell’oggetto globale <code>navigator</code>. Se il tuo browser non supporta la geolocation <abbr>API</abbr>, la proprietà <code>geolocation</code> non sarà definita.
+<p>Per verificare il supporto per la geolocazione si usa la <a href=#metodi>tecnica #1</a>. Se il tuo browser supporta la geolocation <abbr>API</abbr>, ci sarà una proprietà <code>geolocation</code> nell’oggetto globale <code>navigator</code>. Se il tuo browser non supporta la geolocation <abbr>API</abbr>, la proprietà <code>geolocation</code> non sarà definita.
 
 <pre><code>function supports_geolocation() {
   return !!navigator.geolocation;
@@ -369,7 +369,7 @@ R: Il supporto della geolocazione ai browser viene aggiunto proprio ora, mentre 
 <li><a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#local-date-and-time-state><code>&lt;input type="datetime-local"></code></a> per date e ore locali
 </ol>
 
-<p>Per controllare le nuove tipologie di input introdotte da <abbr>HTML5</abbr> si usa la <a href=#techniques>tecnica #4</a>. Ecco come funziona: prima si crea un elemento <code>&lt;input></code> fittizio. La tipologia predefinita assegnata agli elementi <code>&lt;input></code> è <code>"text"</code>. Questa cosa si dimostrerà di fondamentale importanza.
+<p>Per controllare le nuove tipologie di input introdotte da <abbr>HTML5</abbr> si usa la <a href=#metodi>tecnica #4</a>. Ecco come funziona: prima si crea un elemento <code>&lt;input></code> fittizio. La tipologia predefinita assegnata agli elementi <code>&lt;input></code> è <code>"text"</code>. Questa cosa si dimostrerà di fondamentale importanza.
 
 <pre><code>  var i = document.createElement("input");</code></pre>
 
@@ -391,11 +391,11 @@ R: Il supporto della geolocazione ai browser viene aggiunto proprio ora, mentre 
 
 <p class=a>&#x2042;
 
-<h2 id=input-placeholder>Testo segnaposto</h2>
+<h2 id=input-placeholder>Segnaposti</h2>
+i
+<form style="float:right;margin:1.75em"><input placeholder="Il tuo browser supporta i segnaposti" size=38></form>
 
-<form style="float:right;margin:1.75em"><input placeholder="Il tuo browser supporta il testo segnaposto" size=38></form>
-
-<p><a href=#input-types>Nuove tipologie di input</a> a parte, <abbr>HTML5</abbr> include svariate piccole modifiche alle funzionalità dei form. Uno dei miglioramenti è la possibilità di impostare <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>del testo segnaposto in un campo di input</a>. Il testo segnaposto viene mostato dentro al campo di input fino a quando questo è vuoto e senza focus. Non appena clicchi sul campo di input (o ci arrivi premendo tab), il segnaposto scompare.
+<p><a href=#input-types>Nuove tipologie di input</a> a parte, <abbr>HTML5</abbr> include svariate piccole modifiche alle funzionalità dei form. Uno dei miglioramenti è la possibilità di impostare <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#the-placeholder-attribute>un segnaposto nei campi di input</a>. Il testo segnaposto viene mostrato dentro al campo di input fino a quando questo è vuoto e senza focus. Non appena clicchi sul campo di input (o ci arrivi premendo tab), il segnaposto scompare.
 
 <p>È molto probabile che tu abbia già visto questo tipo di segnaposto in azione. Ad esempio Mozilla Firefox 3.5 include un segnaposto nella location bar che recita &#8220;Search Bookmarks and History&#8221;:
 
@@ -403,7 +403,7 @@ R: Il supporto della geolocazione ai browser viene aggiunto proprio ora, mentre 
 <p><img src=i/location-bar-empty-unfocused.png alt="location bar with placeholder text" width=268 height=30>
 </blockquote>
 
-<p>Quado clicchi sulla location bar (o ci arrivi premendo tab), il segnaposto scompare:
+<p>Quando clicchi sulla location bar (o ci arrivi premendo tab), il segnaposto scompare:
 
 <blockquote>
 <p><img src=i/location-bar-empty-focused.png alt="location bar with cursor and no placeholder text" width=268 height=30>
@@ -416,28 +416,28 @@ R: Il supporto della geolocazione ai browser viene aggiunto proprio ora, mentre 
 &lt;input type="submit" value="Search">
 &lt;/form></code></pre>
 
-<p>Per verificare la presenza del supporto per il segnaposto si usa la <a href=#techniques>tecnica #2</a>. Se il tuo browser supporta il segnaposto nei campi di input, l’oggetto <abbr>DOM</abbr> creato per rappresentare un elemento <code>&lt;input></code> possiederà una proprietà <code>placeholder</code> (anche se non includi un attributo <code>placeholder</code> nel tuo <abbr>HTML</abbr>). Se il tuo browser non supporta il segnaposto, l’oggetto <abbr>DOM</abbr> creato per l’elemento <code>&lt;input></code> non possiederà la proprietà <code>placeholder</code>.
+<p>Per verificare la presenza del supporto per il segnaposto si usa la <a href=#metodi>tecnica #2</a>. Se il tuo browser supporta il segnaposto nei campi di input, l’oggetto <abbr>DOM</abbr> creato per rappresentare un elemento <code>&lt;input></code> possiederà una proprietà <code>placeholder</code> (anche se non includi un attributo <code>placeholder</code> nel tuo <abbr>HTML</abbr>). Se il tuo browser non supporta il segnaposto, l’oggetto <abbr>DOM</abbr> creato per l’elemento <code>&lt;input></code> non possiederà la proprietà <code>placeholder</code>.
 
 <pre><code>function supports_input_placeholder() {
   var i = document.createElement('input');
   return 'placeholder' in i;
 }</code></pre>
 
-<p><a href=#modernizr>Modernizr</a> non è ancora in grado di verificare il supporto per il segnaposto, quindi dovrai utilizzare la funzione appena descritta.
+<p><a href=#modernizr>Modernizr</a> non è ancora in grado di verificare il supporto per placeholder, quindi dovrai utilizzare la funzione appena descritta.
 
 <p class=a>&#x2042;
 
-<h2 id=input-autofocus>Form Autofocus</h2>
+<h2 id=input-autofocus>Autofocus nei form</h2>
 
-<p class=ss style="width:188px"><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="angry guy with arms up" width=188 height=262><br><span id="live-input-autofocus"></span>
+<p class=ss style="width:188px"><img src=i/openclipart.org_johnny_automatic_angry_guy.png alt="tizio arrabbiato con braccia alzate" width=188 height=262><br><span id="live-input-autofocus"></span>
 
-<p>Molti siti web usano JavaScript per impostare automaticamente il focus sul primo campo di input di un form. Ad esempio, la home page di <a href=http://www.google.com/>Google.com</a> fa autofocus sull’campo input così puoi scriverci dentro le parole chiave per la tua ricerca. Questo è un vantaggio per la maggior parte delle persone, ma può essere una scocciatura per gli utenti smaliziati o con bisogni specifici. Se premi la barra spaziatrice aspettandoti di riuscire a far scorrere la pagina, la pagina non lo farà perché il focus è già sul campo di input del form. (Scriverebbe uno spazio nel campo di ricerca invece di scorrere la pagina.) Se metti il focus su un differente campo di input mentre la pagina sta ancora caricando, lo script di autofocus del sito potrebbe &#8220;gentilmente&#8221; spostare il focus lontano da dove avevi scelto di metterlo, con il risultato che ti troveresti a scrivere in un campo diverso da quello voluto.
+<p>Molti siti web usano JavaScript per impostare automaticamente il focus sul primo campo di input di un form. Ad esempio, la home page di <a href=http://www.google.com/>Google.com</a> fa autofocus sul campo input così puoi scriverci dentro le parole chiave per la tua ricerca. Questo è un vantaggio per la maggior parte delle persone, ma può essere una scocciatura per gli utenti smaliziati o con bisogni specifici. Se premi la barra spaziatrice e ti aspetti di far scorrere la pagina, questa non lo farà perché il focus è già sul campo di input del form. (Scriverebbe uno spazio nel campo di ricerca invece di scorrere la pagina.) Se metti il focus su un differente campo di input mentre la pagina sta ancora caricando, lo script di autofocus del sito potrebbe &#8220;gentilmente&#8221; spostare il focus lontano da dove avevi scelto di metterlo, con il risultato che ti troveresti a scrivere in un campo diverso da quello voluto.
 
-<p>Siccome l’autofocus è realizzato con JavaScript, cercare di gestire tutti questi casi può essere davvero difficoltoso, comunque c’è poco da fare per chi semplicemente non vuole che la pagina scelga da sola dove piazzare il focus.
+<p>Siccome l’autofocus è realizzato con JavaScript, cercare di gestire tutti questi casi può essere davvero difficoltoso, ad ogni modo c’è poco da fare per chi semplicemente non vuole che la pagina scelga da sola dove piazzare il focus.
 
-<p>Per risolvere questo problema, <abbr>HTML5</abbr> introduce <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>un attributo <code>autofocus</code> su tutti i web form controls</a>. L’attributo <code>autofocus</code> fa esattamente quello che è indicato sulla confezione: muove il focus su un particolare campo di input. Ma siccome è markup e non uno script, il comportamento sarà consistent su tutti i siti web. Inoltre chi realizza i browser (o gli autori di estensioni per i browser) possono offrire agli utenti la possibilità di disabilitare l’autofocus.
+<p>Per risolvere questo problema, <abbr>HTML5</abbr> introduce <a href=http://www.whatwg.org/specs/web-apps/current-work/multipage/forms.html#autofocusing-a-form-control>un attributo <code>autofocus</code> su tutti i web form controls</a>. L’attributo <code>autofocus</code> fa esattamente quello che ci si aspetta che faccia: sposta il focus su un particolare campo di input. Ma siccome è markup e non uno script, il comportamento sarà coerente su tutti i siti web. Inoltre chi realizza i browser (o gli autori di estensioni per i browser) può offrire agli utenti la possibilità di disabilitare l’autofocus.
 
-<p>Per verificare il supporto per l’autofocus si usa la <a href=#techniques>tecnica #2</a>. Se il tuo browser supporta l’autofocus, l’oggetto <abbr>DOM</abbr> creato per rappresentare un elemento <code>&lt;input></code> possiederà la proprità <code>autofocus</code> (anche se non includi l’attributo <code>autofocus</code> nel tuo <abbr>HTML</abbr>). Se il tuo browser non supporta l’autofocus, l’oggetto <abbr>DOM</abbr> creato per l’elemento <code>&lt;input></code> non possiederà la proprietà <code>autofocus</code>.
+<p>Per verificare il supporto per l’autofocus si usa la <a href=#metodi>tecnica #2</a>. Se il tuo browser supporta l’autofocus, l’oggetto <abbr>DOM</abbr> creato per rappresentare un elemento <code>&lt;input></code> possiederà la proprità <code>autofocus</code> (anche se non includi l’attributo <code>autofocus</code> nel tuo <abbr>HTML</abbr>). Se il tuo browser non supporta l’autofocus, l’oggetto <abbr>DOM</abbr> creato per l’elemento <code>&lt;input></code> non possiederà la proprietà <code>autofocus</code>.
 
 <pre><code>function supports_input_autofocus() {
   var i = document.createElement('input');
