@@ -108,7 +108,7 @@ $(document).ready(function() {
 
 function hideTOC() {
     var toc = '<a href="javascript:showTOC()">mostra l&#8217;indice</a>';
-    $("#indice").html(toc);
+    $("#toc").html(toc);
 }
 
 function showTOC() {
@@ -129,5 +129,5 @@ function showTOC() {
 	level -= 1;
     }
     toc = '<a href="javascript:hideTOC()">nascondi l&#8217;indice</a><ol start=0><li><a href=indice.html><span class=u>&uarr;</span> Indice completo</a></li>' + toc.substring(4);
-    $("#indice").html(toc);
+    $("#toc").html(toc);
 }
