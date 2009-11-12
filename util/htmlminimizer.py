@@ -50,4 +50,4 @@ with open(output_file, 'w', encoding="utf-8") as _out, open(input_file, encoding
         else:
             _out.write(g)
         if g.lower() == '<!doctype html>':
-            _out.write('\n<!-- readable source @ http://hg.diveintohtml5.org/hgweb.cgi/file/tip/{0} -->\n'.format(os.path.basename(input_file)))
+            _out.write('\n<!-- sorgente in formato leggibile senza dar fuori di zucca su http://github.com/alieb/diveintohtml5.it/blob/master/{0} -->\n'.format(os.path.basename(input_file)))

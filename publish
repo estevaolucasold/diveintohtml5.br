@@ -36,7 +36,7 @@ for f in *.html; do
 done
 
 # build sitemap
-ls build/*.html | sed -e "s|build/|http://diveintohtml5.org/|g" -e "s|/index.html|/|g" > build/sitemap.txt || die "Failed to build sitemap"
+ls build/*.html | sed -e "s|build/|http://diveintohtml5.it/|g" -e "s|/index.html|/|g" > build/sitemap.txt || die "Failed to build sitemap"
 
 echo "adding evil tracking code"
 
