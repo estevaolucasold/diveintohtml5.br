@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<html lang="it">
 <meta charset=utf-8>
 <title>What Does It All Mean? - Dive Into HTML5</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel="shortcut icon" href=favicon.ico>
-<link rel=alternate type=application/atom+xml href=http://hg.diveintohtml5.org/hgweb.cgi/atom-log>
+<link rel="alternate" hreflang="en" href="http://diveintohtml5.org/semantics.html">
+<link href="http://github.com/feeds/alieb/commits/diveintohtml5.it/master" rel="alternate" type="application/atom+xml" />
 <link rel=stylesheet href=screen.css>
 <style>
 body{counter-reset:h1 3}
@@ -12,29 +14,30 @@ dl.col dd{margin-left:7em}
 dl.col dt,dl.col dd{padding-bottom:1.75em}
 </style>
 <div id=zz>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#semantics>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
+<p>Ti trovi qui: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#semantics>Dive Into <abbr>HTML5</abbr></a> <span class=u>&#8227;</span>
 <h1>What Does It All Mean?</h1>
 <p id=toc>&nbsp;
 <p class=a>&#x2042;
 <h2 id=divingin>Diving In</h2>
 
-<p class=f><img src=i/aoc-t.png alt=T width=107 height=105>his chapter will take an <abbr>HTML</abbr> page that has absolutely nothing wrong with it, and improve it. Parts of it will become shorter. Parts will become longer. All of it will become more semantic. It&#8217;ll be awesome.
+<p class=f><img src=i/aoc-q.png alt=Q width=107 height=105>uesto capitolo prenderà una pagina <abbr>HTML</abbr> che non ha assolutamente niente di sbagliato e la migliorerà. Alcune parti diventeranno più corte. Altre più lunghe. L’insieme diventerà più semantico. Sarà da panico.
 
-<p style="clear:both"><a href=examples/blog-original.html>Here is the page in question</a>. Learn it. Live it. Love it. Open it in a new tab and don&#8217;t come back until you&#8217;ve hit &#8220;View Source&#8221; at least once.
+<p style="clear:both"><a href=examples/blog-original.html>Qui trovi la pagina in questione</a>. Imparala. Vivila. Amala. Aprila in un nuovo tab e non tornare prima di aver dato almeno una volta una lettura al suo HTML.
 
-<h2 id=the-doctype>The Doctype</h2>
+<h2 id=the-doctype>Il doctype</h2>
 
-<p>From the top:
+<p>Partendo dall’alto:
 
 <pre><code>&lt;!DOCTYPE html
           PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"></code></pre>
 
-<p>This is called the &#8220;doctype.&#8221; There&#8217;s a long history &mdash; and a black art &mdash; behind the doctype. During the development of Internet Explorer 5 for Mac, Microsoft found themselves with a surprising problem. The upcoming version of their browser had improved its standards support so much, older pages no longer rendered properly. Well, they rendered properly (according to specification), but people expected them to render <em>improperly</em>. The pages themselves had been authored based on the quirks of dominant browsers of the day, mostly Netscape 4 and Internet Explorer 4. IE5/Mac was so advanced, it actually broke the web.
+<p>Questo si chiama &#8220;doctype&#8221;. C’è una lunga storia di black art dietro il doctype. Durante lo sviluppo di Internet Explorer 5 per il Mac (di seguito IE5/Mac), Microsoft si è trovata di fronte un sorprendente problema. La nuova versione del loro browser aveva migliorato così tanto l’aderenza agli standard che le vecchie pagine non venivano più presentate in modo corretto. Beh, venivano mostrate correttamente (secondo le specifiche), ma la gente si aspettava che venissero mostrate in modo <em>sbagliato</em> Le pagine erano state scritte basandosi sui cavilli (in inglese, e di seguito, quirks) dei browser dominanti fino a quel momento, principalmente Netscape 4 e Internet Explorer 4. IE5/Mac era così avanzato che ruppe il web.
 
-<p>Microsoft came up with a novel solution. Before rendering a page, IE5/Mac looked at the &#8220;doctype,&#8221; which is typically the first line of the <abbr>HTML</abbr> source (even before the <code>&lt;html></code> element). Older pages (that relied on the rendering quirks of older browsers) generally didn&#8217;t have a doctype at all. IE5/Mac rendered these pages like older browsers did. In order to &#8220;activate&#8221; the new standards support, authors would have to opt-in, by supplying the right doctype before their <code>&lt;html></code> element.
+<p>Microsoft se ne saltò fuori con una insolita soluzione. Prima di presentare una pagina, IE5/Mac avrebbe dato un’occhiata al &#8220;doctype&#8221;, che di solito è la prima riga nei sorgenti HTML (viene persino prima dell’elemento <code>&lt;html></code>). Le vecchie pagine (quelle che basavano la loro presentazione sui quirks dei vecchi browser) generalmente non avevano alcun doctype. IE5/Mac presentava quelle pagine esattamente come facevano i vecchi browser. Per &#8220;attivare&#8221; il nuovo supporto per gli standard, gli autori delle pagine HTML avrebbero dovuto specificarlo espressamente inserendo il giusto doctype prima dell’elemento <code>&lt;html></code>.
 
-<p>This idea spread like wildfire, and soon all major browsers had two modes: &#8220;quirks mode&#8221; and &#8220;standards mode.&#8221; Of course, this being the web, things quickly got out of hand. When Mozilla tried to ship version 1.1 of their browser, they discovered that there were pages being rendered in &#8220;standards mode&#8221; which were actually relying on one specific quirk. Mozilla had just fixed its rendering engine to eliminate this quirk, and thousands of pages broke all at once. Thus was created &mdash; and I am not making this up &mdash; &#8220;<a href="https://developer.mozilla.org/en/Gecko's_%22Almost_Standards%22_Mode">almost standards mode</a>.&#8221;
+<p>Questa idea si diffuse come un incendio furioso e presto tutti i maggiori browser avevano due modalità: &#8220;quirks mode&#8221; e &#8220;standards mode.&#8221;. Ovviamente, trattandosi del web, le cose andarono presto fuori controllo. Quando Mozilla provò a lanciare la versione 1.1 del suo browser si scoprì che c’erano pagine da presentare in &#8220;standards mode&#8221; che in realtà facevano affidamento su uno specifico cavillo. Mozilla aveva appena corretto il suo motore di presentazione per eliminare questo quirk, così migliaia di pagine smisero di funzionare tutto d’un colpo. Quindi fu creato &mdash; non me lo sto inventando &mdash; la modalità &#8220;quasi standard&#8221; (&#8220;<a href="https://developer.mozilla.org/en/Gecko's_%22Almost_Standards%22_Mode">almost standards mode</a>.&#8221;).
+
 
 <p>In his seminal work, <a href=http://hsivonen.iki.fi/doctype/>Activating Browser Modes with Doctype</a>, Henri Sivonen summarizes the different modes:
 
@@ -831,7 +834,7 @@ p (sibling of h1)
 </div>
 </div>
 
-<p class=c>Copyright MMIX O&#8217;Reilly Media &bull; written by <a href=about.html>Mark Pilgrim</a>
+<p class=c>Copyright MMIX O&#8217;Reilly Media &bull; scritto da <a href=about.html>Mark Pilgrim</a> &bull; tradotto da Andreas Liebschner
 
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:6jgee_nxreo><input type=hidden name=ie value=UTF-8><input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
 </div>
